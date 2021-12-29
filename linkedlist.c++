@@ -9,7 +9,7 @@ class Node {
         int data; //
         Node* next; //
 
-        // here is my default constructor...
+        // by default...
         Node() { 
             data = 0; // no data in my linkedlist..
             next = NULL; // it is empty...
@@ -21,6 +21,25 @@ class Node {
         }
 };
 
+
+class myLinkedList {
+    Node* head; // head of my linked list...
+
+    public:
+        // by default...
+        myLinkedList() {
+            head = NULL; //
+        }
+        // method to insert a new node in the linked list...
+        void insert(int) {
+
+        }
+
+        //method to print the list...
+        void print() {
+
+        }
+};
 
 int main() {
 
