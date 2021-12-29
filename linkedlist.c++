@@ -31,7 +31,7 @@ class myLinkedList {
             head = NULL; //
         }
         // method to insert a new node in the linked list...
-        void insert(int) {
+        void insert(int data) {
 
         }
 
@@ -40,6 +40,26 @@ class myLinkedList {
 
         }
 };
+
+void myLinkedList::insert(int data) {
+
+    Node* newNode = new Node(); // new empty node created...
+
+    // give to head the new node we created...
+    if (head == NULL) {
+        head = newNode;
+        return; //
+    }
+
+    // need to traverse the linked list...
+    Node* tmpNode = head; /*save head into  tmpNode so that we can use 
+    it to move to next...*/
+    while (tmpNode->next != NULL) {
+        tmpNode = tmpNode->next;
+    }
+
+    tmpNode->next = newNode;
+}
 
 int main() {
 
