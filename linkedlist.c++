@@ -14,7 +14,7 @@ class Node {
             data = 0; // no data in my linkedlist..
             next = NULL; // it is empty...
         }
-        // here is my parameterized constructor...
+        // parameterized constructor...
         Node(int data, Node* next){
             this->data = data;
             this->next = next; //
@@ -22,7 +22,7 @@ class Node {
 };
 
 class myLinkedList {
-    Node* head; // head of my linked list...
+    Node* head; // head of linked list...
 
     public:
         // by default...
@@ -30,14 +30,24 @@ class myLinkedList {
             head = NULL; //
         }
         // method to insert a new node in the linked list...
-        void insert(int);
+        void insert_last(int);
+        void insert_front(int);
             
         //method to print the list...
         void print();
 };
 
+void myLinkedList::insert_front(int data) {
 
-void myLinkedList::insert(int data) {
+    Node* newNode = new Node();
+    newNode->data = data;
+
+    newNode->next = head;
+    head = newNode;
+
+}
+
+void myLinkedList::insert_last(int data) {
     
     Node* newNode = new Node(); // new empty node created...
     newNode->data = data;  // add data to new node created...
@@ -47,7 +57,7 @@ void myLinkedList::insert(int data) {
         return; //
     }
     // need to traverse the linked list...
-    Node* tmpNode = head; /*save head into  tmpNode so that we can use 
+    Node* tmpNode = head; /*save head into tmpNode so we can use 
     it to move to next...*/
     while (tmpNode->next != NULL) {
         tmpNode = tmpNode->next;
@@ -75,10 +85,13 @@ int main() {
 
     myLinkedList linkList;
 
-    linkList.insert(0);
-    linkList.insert(3);
-    linkList.insert(4);
-    linkList.insert(1);
+    linkList.insert_last(0);
+    linkList.insert_last(3);
+    linkList.insert_last(4);
+    linkList.insert_last(1);
+
+    linkList.insert_front(10);
+    linkList.insert_front(20);
 
     cout <<endl;
     cout << "Hello LinkedList "<<endl;
