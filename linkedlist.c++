@@ -15,9 +15,9 @@ class Node {
             next = NULL; // it is empty...
         }
         // here is my parameterized constructor...
-        Node(int data) {
+        Node(int data, Node* next){
             this->data = data;
-            this->next = NULL; //
+            this->next = next; //
         }
 };
 
@@ -42,19 +42,16 @@ void myLinkedList::insert(int data) {
     Node* newNode = new Node(); // new empty node created...
     newNode->data = data;  // add data to new node created...
 
-    // give to head the new node we created...
     if (head == NULL) {
-        head = newNode;
+        head = newNode; // give to head the new node we created...
         return; //
     }
-
     // need to traverse the linked list...
     Node* tmpNode = head; /*save head into  tmpNode so that we can use 
     it to move to next...*/
     while (tmpNode->next != NULL) {
         tmpNode = tmpNode->next;
     }
-
     tmpNode->next = newNode;
 }
 
@@ -66,14 +63,13 @@ void myLinkedList::print() {
         cout << "list is empty" << endl; //
         return; //
     }
-    // list is not empty... the traverse...
 
+    // list is not empty... we traverse...
     while (tmpNode != NULL) {
         cout << tmpNode->data <<" ";
         tmpNode = tmpNode->next;
     }
 }
-
 
 int main() {
 
@@ -86,7 +82,6 @@ int main() {
 
     cout <<endl;
     cout << "Hello LinkedList "<<endl;
-
     cout << "Element of linked list are: ";
     linkList.print();
     cout << endl;

@@ -1,1 +1,2 @@
-# singly_Linked_list
+A CPP 
+Implementation of a singly linked list to perform some basic operations like insertion at the back of the list, insertion at the front of the list, deletion at the front of the list, deletion at the back of the list, or insertion/deletion at any random position in the list.
