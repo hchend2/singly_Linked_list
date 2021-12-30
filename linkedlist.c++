@@ -32,21 +32,48 @@ class myLinkedList {
         // method to insert a new node in the linked list...
         void insert_last(int);
         void insert_front(int);
+        void insert_after(int, int);
             
         //method to print the list...
         void print();
 };
 
+// this method is used to insert at any position in between the head and and the tail...
+void myLinkedList::insert_after(int data, int pos) {
+    
+    int count = 1; //
+    Node* curr = head;
+    Node* tmpNode = NULL;
+
+    while (curr->next != NULL) {
+        count++;
+        curr = curr->next;
+        if (count == pos) {
+
+            tmpNode = curr->next; // save next node in tmpNode...
+
+            Node* newNode = new Node();  // create new empty node...
+            newNode->data = data; // insert data into new node...
+
+            curr->next = newNode; // update current node...
+            newNode->next = tmpNode; // update next node...
+
+        }
+    }
+}
+
+// this method is used to insert at the front of the linked list...
 void myLinkedList::insert_front(int data) {
 
-    Node* newNode = new Node();
-    newNode->data = data;
+    Node* newNode = new Node(); // create new empty node...
+    newNode->data = data; // put data into newNode created...
 
-    newNode->next = head;
-    head = newNode;
+    newNode->next = head;  // make head to be next...
+    head = newNode; // update head to newNode....
 
 }
 
+// this method is used to insert at the tail of the list...
 void myLinkedList::insert_last(int data) {
     
     Node* newNode = new Node(); // new empty node created...
@@ -92,6 +119,8 @@ int main() {
 
     linkList.insert_front(10);
     linkList.insert_front(20);
+
+    linkList.insert_after(25, 3);
 
     cout <<endl;
     cout << "Hello LinkedList "<<endl;
